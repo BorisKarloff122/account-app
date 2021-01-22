@@ -1,0 +1,28 @@
+::ng-deep .mat-form-field-infix{
+  width:100%;
+}
+::ng-deep .mat-form-field{
+  width:100%;
+  margin-bottom:10px;
+}
+
+.regLink{
+  margin-left:10px;
+  font-weight:bold;
+}
+
+.reg{
+  margin-top:10px;
+}
+
+.container{
+  max-width:500px;
+  position:relative;
+  padding:10px;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:15px;
+}

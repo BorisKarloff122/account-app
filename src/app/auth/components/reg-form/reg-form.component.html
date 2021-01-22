@@ -1,0 +1,32 @@
+<div class="container">
+  <a [routerLink]="'/auth'" class="close">x</a>
+<h2 mat-dialog-title>Регистрация</h2>
+  <div class="subTitle">
+    Регистрация:
+  </div>
+  <form [formGroup]="regForm" (submit)="submit()">
+  <mat-form-field>
+    <mat-label>Ваше имя</mat-label>
+    <input matInput type="text" formControlName="name" placeholder="Ваше имя">
+    <mat-error class="error" *ngIf="getter.name.touched || isSubmited">
+      <span class="req valid" *ngIf="getter.name.invalid">Поле Имя не может быть пустым!</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Ваш Email</mat-label>
+    <input matInput type="text" formControlName="email" placeholder="Ваш Email">
+    <mat-error class="error" *ngIf="getter.email.touched || isSubmited">
+      <span class="req valid" *ngIf="getter.email.invalid">Поле Email не может быть пустым!</span>
+      <span class="req valid" *ngIf="getter.email.errors !== null && getter.email.errors.email">Поле Почта должно содержать Email!</span>
+    </mat-error>
+  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Пароль</mat-label>
+      <input matInput type="text" formControlName="password" placeholder="Пароль">
+      <mat-error *ngIf="getter.password.touched || isSubmited">
+        <span class="length valid" *ngIf="getter.password.value.length < 6">Пароль не может содержать меньше 6 символов! Сейчас {{getter.password.value.length}}</span>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="!regForm.valid">Зарегитрироваться</button>
+  </form>
+</div>
