@@ -8,7 +8,7 @@ import {RegFormComponent} from './components/reg-form/reg-form.component';
 
 const routes: Routes = [
   { path: '', component: AuthComponent, children: [
-      {path: 'auth', component: AuthFormComponent},
+      { path: 'auth', component: AuthFormComponent},
       { path: 'reg', component: RegFormComponent},
     ] },
 ];

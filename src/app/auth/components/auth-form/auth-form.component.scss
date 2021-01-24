@@ -27,9 +27,25 @@
   background-color: #ff413a;
 }
 
+h2{
+  font-weight:lighter;
+  margin-bottom:20px;
+}
 
+.button_row{
+  display: flex;
+  margin-bottom:20px;
+}
 .container{
-  max-width:500px;
-  margin:0 auto;
-  padding:10px;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 5px 9px 16px 1px rgb(0 0 0 / 34%);
+  min-height: 600px;
+  padding: 55px 20px;
 }

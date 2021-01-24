@@ -8,9 +8,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
 import {MatIconModule} from '@angular/material/icon';
 import {AppCoreModule} from './app-core/app-core.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,16 +18,18 @@ import {AppCoreModule} from './app-core/app-core.module';
   ],
   imports: [
     BrowserModule,
-    AuthModule,
-    AppCoreModule,
     AppRoutingModule,
+    AppCoreModule,
+    AuthModule,
+
     BrowserAnimationsModule,
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

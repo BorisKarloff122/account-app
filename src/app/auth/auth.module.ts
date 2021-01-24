@@ -12,6 +12,8 @@ import {RegFormComponent} from './components/reg-form/reg-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthRoutingModule} from './auth-routing.module';
+import {AppCoreModule} from '../app-core/app-core.module';
+import {AppCoreRoutingModule} from '../app-core/app-core-routing.module';
 
 
 @NgModule({
@@ -30,10 +32,9 @@ import {AuthRoutingModule} from './auth-routing.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    AppCoreModule,
+    AppCoreRoutingModule
   ],
-  exports: [
-    AuthComponent
-  ]
 })
 export class AuthModule{}
