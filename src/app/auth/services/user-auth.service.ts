@@ -17,7 +17,7 @@ export class UserAuthService {
     return  this.http.get<Array<User>>(`${this.baseUrl}?email=${mail}`);
   }
 
-  public registrateUser(regedUser): void{
+  public registrateUser(regedUser: User): void{
     this.http.post<User>(`${this.baseUrl}`, regedUser)
       .subscribe();
   }

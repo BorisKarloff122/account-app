@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: '', component: AppCoreComponent, children: [
       {path: 'logged', component: TestComponent}
     ]}
-
 ];
 
 @NgModule({

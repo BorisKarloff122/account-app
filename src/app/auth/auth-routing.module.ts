@@ -4,8 +4,6 @@ import {AuthComponent} from './auth.component';
 import {AuthFormComponent} from './components/auth-form/auth-form.component';
 import {RegFormComponent} from './components/reg-form/reg-form.component';
 
-
-
 const routes: Routes = [
   { path: '', component: AuthComponent, children: [
       { path: 'auth', component: AuthFormComponent},

@@ -10,7 +10,6 @@ import {AppCoreComponent} from './app-core.component';
   imports: [
     CommonModule,
     AppCoreRoutingModule,
-
   ]
 })
 export class AppCoreModule { }

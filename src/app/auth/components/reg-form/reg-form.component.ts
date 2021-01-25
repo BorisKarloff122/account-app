@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserAuthService} from '../../services/user-auth.service';
 
-
 @Component({
   selector: 'app-reg-form',
   templateUrl: './reg-form.component.html',
@@ -11,13 +10,13 @@ import {UserAuthService} from '../../services/user-auth.service';
 export class RegFormComponent implements OnInit {
   public regForm!: FormGroup;
   public isSubmited: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private userAuth: UserAuthService,
-  ) { }
+  ){}
 
   ngOnInit(): void {
-
     this.buildForm();
   }
 
@@ -35,6 +34,7 @@ export class RegFormComponent implements OnInit {
       this.userAuth.registrateUser(this.regForm.value);
     }
   }
+
   get getter(): { [p: string]: AbstractControl } {
     return this.regForm.controls;
   }

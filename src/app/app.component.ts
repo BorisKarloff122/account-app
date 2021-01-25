@@ -8,10 +8,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'Accounting-app';
-  constructor(
-    private router: Router
-  ){ }
+  public title: string = 'Accounting-app';
+
+  constructor(){}
+
   ngOnInit(): void {
   }
 }

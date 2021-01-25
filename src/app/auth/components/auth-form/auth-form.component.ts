@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserAuthService} from '../../services/user-auth.service';
-import {RegFormComponent} from '../reg-form/reg-form.component';
-import {dialogConfigForReg} from '../../../shared/config/dialogConf';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 
@@ -43,7 +41,7 @@ export class AuthFormComponent implements OnInit {
     }
   }
 
-  public checkUser(email): void{
+  public checkUser(email: string): void{
       this.dataGet.checkIfUserExist(email)
         .subscribe((response) => {
         if (response.length === 0){
@@ -56,7 +54,6 @@ export class AuthFormComponent implements OnInit {
         else{
           this.router.navigateByUrl('/logged');
         }
-
       });
   }
 
