@@ -3,14 +3,14 @@
   <div class="subTitle">
     {{subTitleText}}
   </div>
-  <form [formGroup]="signIn" (submit)="submit()">
+  <form [formGroup]="signIn">
     <div class="existance" [ngClass]="exist !== 'Пользователя не существует'? 'red': ''" *ngIf="exist !== ''">
       {{exist}}
     </div>
     <mat-form-field>
       <mat-label>Почта</mat-label>
       <input type='text' formControlName="email"  matInput placeholder="Почта">
-      <mat-error class="error" *ngIf="getter.email.touched || isSubmited">
+      <mat-error class="error" *ngIf="getter.email.touched || isSubmitted">
         <span class="req valid" *ngIf="getter.email.value.length === 0">Поле Почта не может быть пустым!<br/></span>
         <span class="req valid" *ngIf="getter.email.errors !== null && getter.email.errors.email">Поле Почта должно содержать Email!</span>
       </mat-error>
@@ -18,16 +18,15 @@
     <mat-form-field>
       <mat-label>Пароль</mat-label>
       <input formControlName = "password" [type]="hide ? 'password' : 'text'" matInput placeholder="UserPassword"/>
-      <div class="error"></div>
-      <button class="hideShow" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="getter.email.touched || isSubmited">
+
+        <mat-icon (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+      <mat-error *ngIf="getter.email.touched || isSubmitted">
         <span class="length valid" *ngIf="getter.password.value.length < 6">Пароль не может содержать меньше 6 символов! Сейчас {{getter.password.value.length}}</span>
       </mat-error>
     </mat-form-field>
     <div class="button_row">
-      <button mat-raised-button [disabled]="!signIn.valid" >Войти</button>
+      <button mat-raised-button [disabled]="!signIn.valid" (click)="submit()">Войти</button>
     </div>
     <div class="reg">
       <div class="reg_text">

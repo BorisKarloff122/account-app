@@ -4,29 +4,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
 import {AppCoreModule} from './app-core/app-core.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HeaderComponent } from './shared/components/header/header.component';
+import {MaterialModule} from './shared/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     AppRoutingModule,
     AppCoreModule,
     AuthModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatIconModule,
     ReactiveFormsModule,
     FormsModule
   ],

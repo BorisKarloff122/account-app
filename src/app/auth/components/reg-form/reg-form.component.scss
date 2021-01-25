@@ -16,17 +16,28 @@
 }
 
 .container{
-  max-width: 600px;
+  max-width:440px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  text-align: center;
   margin: 0 auto;
   box-shadow: 5px 9px 16px 1px rgb(0 0 0 / 34%);
   min-height: 600px;
+  box-sizing: border-box;
   padding: 55px 20px;
+}
+
+
+.block{
+  margin-top:10px;
+  text-align: center;
+  width:100%;
+}
+
+::ng-deep .mat-checkbox-layout{
+  margin-bottom:10px;
 }
 
 .close{

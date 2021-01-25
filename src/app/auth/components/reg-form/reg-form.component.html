@@ -1,6 +1,6 @@
 <div class="container">
-  <a [routerLink]="'/auth'" class="close">x</a>
-<h2 mat-dialog-title>Регистрация</h2>
+
+<h2 mat-dialog-title>Домашняя бухгалтерия</h2>
   <div class="subTitle">
     Регистрация:
   </div>
@@ -27,6 +27,15 @@
         <span class="length valid" *ngIf="getter.password.value.length < 6">Пароль не может содержать меньше 6 символов! Сейчас {{getter.password.value.length}}</span>
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button [disabled]="!regForm.valid">Зарегитрироваться</button>
+
+      <mat-checkbox formControlName="agree">Согласен с правилами</mat-checkbox>
+
+
+    <div class="button_array">
+      <button mat-raised-button [disabled]="!regForm.valid">Зарегитрироваться</button>
+      <div class="block">
+      Уже есть аккаунт&nbsp; <a [routerLink]="'/auth'">Войти</a>
+      </div>
+    </div>
   </form>
 </div>

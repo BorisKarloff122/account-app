@@ -36,8 +36,9 @@ h2{
   display: flex;
   margin-bottom:20px;
 }
+
 .container{
-  max-width: 600px;
+  max-width: 440px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,4 +49,12 @@ h2{
   box-shadow: 5px 9px 16px 1px rgb(0 0 0 / 34%);
   min-height: 600px;
   padding: 55px 20px;
+}
+
+::ng-deep .mat-icon{
+  position:absolute;
+  right:0;
+  top:3px;
+  cursor: pointer;
+
 }

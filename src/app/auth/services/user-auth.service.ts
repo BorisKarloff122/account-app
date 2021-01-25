@@ -6,19 +6,23 @@ import {User} from '../../shared/interface/user';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserAuthService {
-  public baseUrl = 'http://localhost:3000/users';
+  public baseUrl: string = 'http://localhost:3000/users';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public checkIfUserExist(mail: string): Observable<Array<User>>{
-    return  this.http.get<Array<User>>(`${this.baseUrl}?email=${mail}`);
+  public checkIfUserExist(mail: string): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}?email=${mail}`);
   }
 
-  public registrateUser(regedUser: User): void{
-    this.http.post<User>(`${this.baseUrl}`, regedUser)
-      .subscribe();
+  public registerUser(regedUser: User): Observable<User>{
+    return this.http.post<User>(`${this.baseUrl}`, regedUser);
+  }
+
+  public activeUser(logedUser: User): void{
+    localStorage.setItem('activeUser', JSON.stringify(logedUser));
   }
 }

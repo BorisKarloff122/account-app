@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserAuthService} from '../../services/user-auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reg-form',
@@ -14,6 +15,7 @@ export class RegFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userAuth: UserAuthService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -24,14 +26,17 @@ export class RegFormComponent implements OnInit {
     this.regForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      agree: ['', Validators.requiredTrue]
     });
   }
 
   public submit(): void{
     this.isSubmited = true;
     if (this.regForm.valid){
-      this.userAuth.registrateUser(this.regForm.value);
+      delete  this.regForm.value.agree;
+      this.userAuth.registerUser(this.regForm.value).subscribe();
+      this.router.navigateByUrl('/auth');
     }
   }
 

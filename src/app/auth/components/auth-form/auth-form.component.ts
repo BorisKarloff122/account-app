@@ -12,19 +12,25 @@ import {Router} from '@angular/router';
 export class AuthFormComponent implements OnInit {
   public subTitleText: string = 'Войдите для начала работы';
   public exist = '';
-  public hide: boolean = false;
+  public hide: boolean = true;
   public signIn!: FormGroup;
-  public isSubmited: boolean = false;
+  public isSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private dataGet: UserAuthService,
     private dialog: MatDialog,
     private router: Router
-  ) { }
+  ){}
 
   ngOnInit(): void {
     this.buildForm();
+  }
+
+  private clearMessage(): void{
+    setTimeout(() => {
+      this.exist = '';
+    }, 3000);
   }
 
   public buildForm(): void{
@@ -35,7 +41,7 @@ export class AuthFormComponent implements OnInit {
   }
 
   public submit(): void{
-    this.isSubmited = true;
+    this.isSubmitted = true;
     if (this.signIn.valid){
       this.checkUser(this.getter.email.value);
     }
@@ -46,12 +52,14 @@ export class AuthFormComponent implements OnInit {
         .subscribe((response) => {
         if (response.length === 0){
           this.exist = 'Пользователя несуществует!';
+          this.clearMessage();
         }
         else if (response[0].password !== this.getter.password.value){
           this.exist  = 'Пароль не верный!';
-          console.log(response[0].password);
+          this.clearMessage();
         }
         else{
+          this.dataGet.activeUser(response[0]);
           this.router.navigateByUrl('/logged');
         }
       });

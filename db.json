@@ -7,16 +7,28 @@
       "name": "Администратор"
     },
     {
-      "name": "14141414",
-      "email": "1414141",
-      "password": "1414144",
+      "name": "test",
+      "email": "test@test.com",
+      "password": "12345678",
       "id": 2
     },
     {
-      "name": "test",
-      "email": "test",
-      "password": "test",
+      "name": "wfm@mail.ru",
+      "email": "111111@mail",
+      "password": "1124141241414",
       "id": 3
+    },
+    {
+      "name": "test",
+      "email": "test@test.com",
+      "password": "test111",
+      "id": 4
+    },
+    {
+      "name": "test@test.com",
+      "email": "test@test.com",
+      "password": "test123",
+      "id": 5
     }
   ],
   "bill": {
