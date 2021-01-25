@@ -6,26 +6,24 @@ import {RegFormComponent} from './components/reg-form/reg-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthRoutingModule} from './auth-routing.module';
-import {AppCoreModule} from '../app-core/app-core.module';
-import {AppCoreRoutingModule} from '../app-core/app-core-routing.module';
 import {MaterialModule} from '../shared/material/material.module';
+import {AppCoreModule} from '../app-core/app-core.module';
 
 
 @NgModule({
   declarations: [
-    AuthComponent,
+    RegFormComponent,
     AuthFormComponent,
-    RegFormComponent
+    AuthComponent
   ],
   imports: [
     CommonModule,
+    AuthRoutingModule,
+    AppCoreModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    AppCoreModule,
-    AuthRoutingModule,
-    AppCoreRoutingModule,
+    HttpClientModule
   ],
 })
 export class AuthModule{}

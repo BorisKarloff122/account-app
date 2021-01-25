@@ -8,11 +8,12 @@ const routes: Routes = [
   { path: '', component: AuthComponent, children: [
       { path: 'auth', component: AuthFormComponent},
       { path: 'reg', component: RegFormComponent},
-    ] },
+    ]},
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class AuthRoutingModule { }

@@ -18,9 +18,7 @@
     <mat-form-field>
       <mat-label>Пароль</mat-label>
       <input formControlName = "password" [type]="hide ? 'password' : 'text'" matInput placeholder="UserPassword"/>
-
         <mat-icon (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-
       <mat-error *ngIf="getter.email.touched || isSubmitted">
         <span class="length valid" *ngIf="getter.password.value.length < 6">Пароль не может содержать меньше 6 символов! Сейчас {{getter.password.value.length}}</span>
       </mat-error>

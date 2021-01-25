@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserAuthService} from '../../services/user-auth.service';
-import {Router} from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserAuthService } from '../../services/user-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reg-form',
   templateUrl: './reg-form.component.html',
   styleUrls: ['./reg-form.component.scss']
 })
+
 export class RegFormComponent implements OnInit {
+
   public regForm!: FormGroup;
-  public isSubmited: boolean = false;
+  public isSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -32,11 +34,12 @@ export class RegFormComponent implements OnInit {
   }
 
   public submit(): void{
-    this.isSubmited = true;
+    this.isSubmitted = true;
     if (this.regForm.valid){
-      delete  this.regForm.value.agree;
-      this.userAuth.registerUser(this.regForm.value).subscribe();
-      this.router.navigateByUrl('/auth');
+      delete this.regForm.value.agree;
+      this.userAuth.registerUser(this.regForm.value).subscribe(() => {
+        this.router.navigateByUrl('/auth');
+      });
     }
   }
 

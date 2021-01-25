@@ -8,7 +8,8 @@ import {User} from '../../shared/interface/user';
 })
 
 export class UserAuthService {
-  public baseUrl: string = 'http://localhost:3000/users';
+
+  public baseUrl = '';
 
   constructor(
     private http: HttpClient

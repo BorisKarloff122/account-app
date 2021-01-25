@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserAuthService} from '../../services/user-auth.service';
-import {MatDialog} from '@angular/material/dialog';
-import {Router} from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserAuthService } from '../../services/user-auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./auth-form.component.scss']
 })
 export class AuthFormComponent implements OnInit {
+
   public subTitleText: string = 'Войдите для начала работы';
   public exist = '';
   public hide: boolean = true;
@@ -27,17 +28,11 @@ export class AuthFormComponent implements OnInit {
     this.buildForm();
   }
 
-  private clearMessage(): void{
-    setTimeout(() => {
-      this.exist = '';
-    }, 3000);
-  }
-
   public buildForm(): void{
-      this.signIn = this.fb.group({
-       email: ['', [Validators.required, Validators.email]],
-       password: ['', [Validators.required, Validators.minLength(6)]]
-      });
+    this.signIn = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
   public submit(): void{
@@ -58,15 +53,21 @@ export class AuthFormComponent implements OnInit {
           this.exist  = 'Пароль не верный!';
           this.clearMessage();
         }
-        else{
+        else {
           this.dataGet.activeUser(response[0]);
           this.router.navigateByUrl('/logged');
         }
       });
   }
 
-  get getter(): { [p: string]: AbstractControl } {
+  public get getter(): { [p: string]: AbstractControl } {
     return this.signIn.controls;
+  }
+
+  private clearMessage(): void{
+    setTimeout(() => {
+      this.exist = '';
+    }, 3000);
   }
 
 }

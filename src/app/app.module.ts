@@ -4,26 +4,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
-import {AppCoreModule} from './app-core/app-core.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
-import {MaterialModule} from './shared/material/material.module';
+import { MaterialModule } from './shared/material/material.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { InterceptorService } from './shared/services/interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
-    AppRoutingModule,
-    AppCoreModule,
-    AuthModule,
     BrowserAnimationsModule,
+    MaterialModule,
+    AuthModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule
   ],
+  providers: [InterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

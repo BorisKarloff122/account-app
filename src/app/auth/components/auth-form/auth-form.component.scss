@@ -23,6 +23,7 @@
   color:#fff;
   margin:10px 0;
 }
+
 .red{
   background-color: #ff413a;
 }
@@ -44,7 +45,7 @@ h2{
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  text-align: center;
+  box-sizing: border-box;
   margin: 0 auto;
   box-shadow: 5px 9px 16px 1px rgb(0 0 0 / 34%);
   min-height: 600px;

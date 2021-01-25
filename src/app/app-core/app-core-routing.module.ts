@@ -6,7 +6,7 @@ import {AppCoreComponent} from './app-core.component';
 
 
 const routes: Routes = [
-  { path: '', component: AppCoreComponent, children: [
+  { path: 'app', component: AppCoreComponent, children: [
       {path: 'logged', component: TestComponent}
     ]}
 ];

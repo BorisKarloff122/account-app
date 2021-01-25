@@ -1,40 +1,36 @@
 <div class="container">
-
-<h2 mat-dialog-title>Домашняя бухгалтерия</h2>
+<h2 mat-dialog-title>Домашняя Бухгалтерия</h2>
   <div class="subTitle">
-    Регистрация:
+    Регистрация для получения доступа:
   </div>
   <form [formGroup]="regForm" (submit)="submit()">
   <mat-form-field>
     <mat-label>Ваше имя</mat-label>
     <input matInput type="text" formControlName="name" placeholder="Ваше имя">
-    <mat-error class="error" *ngIf="getter.name.touched || isSubmited">
+    <mat-error class="error" *ngIf="getter.name.touched || isSubmitted">
       <span class="req valid" *ngIf="getter.name.invalid">Поле Имя не может быть пустым!</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Ваш Email</mat-label>
     <input matInput type="text" formControlName="email" placeholder="Ваш Email">
-    <mat-error class="error" *ngIf="getter.email.touched || isSubmited">
-      <span class="req valid" *ngIf="getter.email.invalid">Поле Email не может быть пустым!</span>
-      <span class="req valid" *ngIf="getter.email.errors !== null && getter.email.errors.email">Поле Почта должно содержать Email!</span>
+    <mat-error class="error" *ngIf = "getter.email.touched || isSubmitted">
+      <span class="req valid" *ngIf = "getter.email.invalid">Поле Email не может быть пустым!</span>
+      <span class="req valid" *ngIf = "getter.email.errors !== null && getter.email.errors.email">Поле Почта должно содержать Email!</span>
     </mat-error>
   </mat-form-field>
     <mat-form-field>
       <mat-label>Пароль</mat-label>
-      <input matInput type="text" formControlName="password" placeholder="Пароль">
-      <mat-error *ngIf="getter.password.touched || isSubmited">
+      <input matInput type="text" formControlName = "password" placeholder="Пароль">
+      <mat-error *ngIf="getter.password.touched || isSubmitted">
         <span class="length valid" *ngIf="getter.password.value.length < 6">Пароль не может содержать меньше 6 символов! Сейчас {{getter.password.value.length}}</span>
       </mat-error>
     </mat-form-field>
-
       <mat-checkbox formControlName="agree">Согласен с правилами</mat-checkbox>
-
-
     <div class="button_array">
       <button mat-raised-button [disabled]="!regForm.valid">Зарегитрироваться</button>
       <div class="block">
-      Уже есть аккаунт&nbsp; <a [routerLink]="'/auth'">Войти</a>
+      Уже есть аккаунт&nbsp;<a [routerLink]="'/auth'">Войти</a>
       </div>
     </div>
   </form>
