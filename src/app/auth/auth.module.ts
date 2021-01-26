@@ -18,8 +18,8 @@ import {AppCoreModule} from '../app-core/app-core.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
     AppCoreModule,
+    AuthRoutingModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,

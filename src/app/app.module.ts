@@ -7,15 +7,14 @@ import { AuthModule } from './auth/auth.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MaterialModule } from './shared/material/material.module';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { InterceptorService } from './shared/services/interceptor.service';
+import { InterceptorService } from './shared/services/interceptor/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent,
+
   ],
   imports: [
     BrowserModule,

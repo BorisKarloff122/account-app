@@ -1,0 +1,49 @@
+::ng-deep .mat-drawer.mat-drawer-side{
+  background-color: #eaf1ff;
+}
+
+.img_block {
+  display:flex;
+  margin:0 auto;
+  align-items: center;
+  justify-content: center;
+  width:200px;
+  border-radius: 360px;
+  height:200px;
+  overflow: hidden;
+  img{
+    max-height:200px;
+    height:100%;
+    width:auto;
+  }
+}
+
+.container{
+  width:400px;
+}
+
+.info_block {
+  text-align: center;
+  width: 100%;
+  margin: 40px auto;
+  .name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+.menu_block {
+  border-top:1px solid rgba(51, 51, 51, 0.6);
+  border-bottom:1px solid rgba(51, 51, 51, 0.6);
+  margin-top:30px;
+  .links {
+    display: flex;
+    flex-direction: column;
+    a{
+      padding:10px;
+      width:100%;
+
+    }
+  }
+}

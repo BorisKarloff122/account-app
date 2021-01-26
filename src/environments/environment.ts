@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   name: 'base',
-  serverLink: 'http://localhost:3000/users'
+  serverLink: 'http://localhost:3000'
 };
 
 /*

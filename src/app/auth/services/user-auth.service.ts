@@ -13,14 +13,14 @@ export class UserAuthService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ){}
 
   public checkIfUserExist(mail: string): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}?email=${mail}`);
+    return this.http.get<User[]>(`${this.baseUrl}/users?email=${mail}`, { headers: {origins: 'users'}});
   }
 
   public registerUser(regedUser: User): Observable<User>{
-    return this.http.post<User>(`${this.baseUrl}`, regedUser);
+    return this.http.post<User>(`${this.baseUrl}/users`, regedUser, { headers: {origins: 'users'}});
   }
 
   public activeUser(logedUser: User): void{

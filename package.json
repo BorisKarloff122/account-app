@@ -8,10 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "run2": "ng serve -c=oak",
     "startServer": "json-server -w db.json",
     "start1:normal": "concurrently --kill-others \"npm run start\" \"npm run startServer\"",
-    "start2": "concurrently --kill-others \"npm run run2\" \"json-server -w db.json -p 9111\""
+    "start2:oak": "concurrently --kill-others \"ng serve -c=oak\" \"json-server -w db.json -p 9111\""
   },
   "private": true,
   "dependencies": {
