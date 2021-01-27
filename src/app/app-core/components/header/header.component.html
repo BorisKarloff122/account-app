@@ -1,8 +1,19 @@
 <mat-toolbar>
   <div class="container">
     <div class="logo">
-      <mat-icon (click)="drawer()">{{menuToggle ? 'menu' : 'menu_open'}}</mat-icon>
+      <mat-icon class='icon'(click)="drawer()">menu</mat-icon>
       Домашняя Бухгалтерия
+    </div>
+    <div class="toolbarBlock">
+      <ul>
+        <li><mat-icon class="icon">settings</mat-icon></li>
+        <li><mat-icon class="icon">help_outline</mat-icon></li>
+        <li><mat-icon class="icon" [matMenuTriggerFor]="accountMenu">person</mat-icon></li>
+      </ul>
+      <mat-menu #accountMenu>
+        <menu mat-menu-item [routerLink]="'records'"><mat-icon class="grey">note_add</mat-icon> Сделать запись</menu>
+        <menu mat-menu-item (click)="logOut()"><mat-icon class="grey">login</mat-icon>Выйти</menu>
+      </mat-menu>
     </div>
   </div>
 </mat-toolbar>

@@ -1,1 +1,31 @@
-<p>bill works!</p>
+<div class="container">
+  <div class="top_line">
+    <div class="header">
+      <h2>Страница счета</h2>
+    </div>
+    <div class="reload">
+      <mat-icon>refresh</mat-icon>
+    </div>
+  </div>
+  <div class="tables" *ngIf="bill.length !== 0 && valutes.length !== 0; else loading">
+    <div class="table money">
+      <div class="t_header">Счет</div>
+      <div class="col">
+        <div class="cell" *ngFor="let elem of bill">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="table valutes">
+
+    </div>
+  </div>
+</div>
+
+
+<ng-template #loading>
+  <div class="tables">
+    Loading...
+  </div>
+</ng-template>

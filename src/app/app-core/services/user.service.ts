@@ -11,4 +11,8 @@ export class UserService {
   public userGetter(): User{
     return JSON.parse(localStorage.getItem('activeUser'));
   }
+
+  public logOut(): void{
+   localStorage.removeItem('activeUser');
+  }
 }

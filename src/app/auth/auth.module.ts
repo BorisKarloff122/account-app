@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthRoutingModule} from './auth-routing.module';
 import {MaterialModule} from '../shared/material/material.module';
 import {AppCoreModule} from '../app-core/app-core.module';
+import {LoginGuard} from '../shared/guards/login.guard';
+import {LoginCanLoadGuard} from '../shared/guards/loginCanLoad.guard';
 
 
 @NgModule({
@@ -25,5 +27,6 @@ import {AppCoreModule} from '../app-core/app-core.module';
     ReactiveFormsModule,
     HttpClientModule
   ],
+  providers: [LoginGuard, LoginCanLoadGuard]
 })
 export class AuthModule{}

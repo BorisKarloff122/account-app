@@ -9,11 +9,15 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { MaterialModule } from './shared/material/material.module';
 import { InterceptorService } from './shared/services/interceptor/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {LoginGuard} from './shared/guards/login.guard';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {LoginCanLoadGuard} from './shared/guards/loginCanLoad.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [
@@ -26,11 +30,16 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule
   ],
   providers: [InterceptorService,
+    LoginGuard,
+    LoginCanLoadGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
-    }],
+    },
+
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

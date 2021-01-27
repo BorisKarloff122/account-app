@@ -8,8 +8,8 @@ import {MaterialModule} from '../shared/material/material.module';
 import { BillComponent } from './components/bill/bill.component';
 import { HistoryComponent } from './components/history/history.component';
 import { RecordsComponent } from './components/records/records.component';
-
-
+import {LoginChildGuard} from '../shared/guards/LoginChild.guard';
+import {LoginGuard} from '../shared/guards/login.guard';
 
 @NgModule({
   declarations: [AppCoreComponent, HeaderComponent, SidebarComponent, BillComponent, HistoryComponent, RecordsComponent],
@@ -17,6 +17,7 @@ import { RecordsComponent } from './components/records/records.component';
     CommonModule,
     MaterialModule,
     AppCoreRoutingModule,
-  ]
+  ],
+  providers: [LoginChildGuard, LoginGuard]
 })
 export class AppCoreModule { }
