@@ -1,5 +1,6 @@
 .container{
   margin:0 auto;
+
   .top_line{
     display: flex;
     max-width: 95%;
@@ -19,3 +20,60 @@
 }
 
 
+.tables{
+  display:Flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:0 20px;
+  max-width:95%;
+  margin:0 auto;
+  .t_header{
+   margin-bottom:20px;
+    padding-left:35px;
+    padding-top:15px;
+  }
+  ::ng-deep .mat-table{
+    width:100%;
+    box-shadow: none;
+  }
+  .money{
+
+    background-color:#fff;
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+  }
+  .table {
+    width:49%;
+    box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+    background-color:#fff;
+    padding-bottom:15px;
+    border-radius: 8px;
+
+    .col{
+      width:100%;
+      padding-bottom:35px;
+    }
+    .cell {
+      box-sizing: border-box;
+      height:54.4px;
+      display: Flex;
+      align-items: center;
+      font-size:16px;
+      justify-content: flex-start;
+      margin-left: 15px;
+      width: 96.5%;
+      border-bottom: 1px solid #c1c4df;
+      .value {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.center{
+  margin:0 auto;
+  display:block;
+}
