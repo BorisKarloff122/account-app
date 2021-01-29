@@ -10,5 +10,4 @@ export class CurrencyTableComponent {
   @Input() public currency!: Rates[];
   @Input() public date!: string;
   public cols = ['currencies', 'values', 'date'];
-  constructor() {}
 }

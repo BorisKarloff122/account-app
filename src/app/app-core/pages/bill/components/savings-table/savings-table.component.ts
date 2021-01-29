@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Bill} from '../../../../../shared/interface/bill';
 
 @Component({
@@ -6,13 +6,9 @@ import {Bill} from '../../../../../shared/interface/bill';
   templateUrl: './savings-table.component.html',
   styleUrls: ['./savings-table.component.scss']
 })
-export class SavingsTableComponent implements OnInit {
+export class SavingsTableComponent {
   @Input() public bill!: Bill[];
   public cols = ['name', 'value'];
   constructor(){}
-
-  ngOnInit(): void {
-
-  }
 
 }
