@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserAuthService } from '../../services/user-auth.service';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserAuthService} from '../../services/user-auth.service';
+import {MatDialog} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',

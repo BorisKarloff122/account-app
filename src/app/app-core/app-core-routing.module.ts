@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {AppCoreComponent} from './app-core.component';
-import {BillComponent} from './components/bill/bill.component';
-import {HistoryComponent} from './components/history/history.component';
-import {RecordsComponent} from './components/records/records.component';
-import {LoginGuard} from '../shared/guards/login.guard';
+import {BillComponent} from './pages/bill/bill.component';
+import {HistoryComponent} from './pages/history/history.component';
+import {RecordsComponent} from './pages/records/records.component';
 
 const routes: Routes = [
   { path: '', component: AppCoreComponent, children: [

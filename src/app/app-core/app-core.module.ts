@@ -5,13 +5,14 @@ import {HeaderComponent} from './components/header/header.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {AppCoreRoutingModule} from './app-core-routing.module';
 import {MaterialModule} from '../shared/material/material.module';
-import {BillComponent} from './components/bill/bill.component';
-import {HistoryComponent} from './components/history/history.component';
-import {RecordsComponent} from './components/records/records.component';
+import {BillComponent} from './pages/bill/bill.component';
+import {HistoryComponent} from './pages/history/history.component';
+import {RecordsComponent} from './pages/records/records.component';
 import {LoginChildGuard} from '../shared/guards/LoginChild.guard';
 import {LoginGuard} from '../shared/guards/login.guard';
-import {CurrencyTableComponent} from './components/bill/currency-table/currency-table.component';
-import {SavingsTableComponent} from './components/bill/savings-table/savings-table.component';
+import {CurrencyTableComponent} from './pages/bill/components/currency-table/currency-table.component';
+import {SavingsTableComponent} from './pages/bill/components/savings-table/savings-table.component';
+import { NamingPipe } from './pipes/naming.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {SavingsTableComponent} from './components/bill/savings-table/savings-tab
     HistoryComponent,
     RecordsComponent,
     CurrencyTableComponent,
-    SavingsTableComponent
+    SavingsTableComponent,
+    NamingPipe,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@ import {User} from '../../../shared/interface/user';
 })
 export class SidebarComponent implements OnInit {
   public user: User = this.userServ.userGetter();
+  public img: string = 'img';
 
   constructor(private userServ: UserService) { }
 

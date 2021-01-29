@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserAuthService } from '../../services/user-auth.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserAuthService} from '../../services/user-auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reg-form',
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 
 export class RegFormComponent implements OnInit {
-
   public regForm!: FormGroup;
   public isSubmitted: boolean = false;
 

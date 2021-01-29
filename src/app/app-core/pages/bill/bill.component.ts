@@ -50,12 +50,16 @@ export class BillComponent implements OnInit {
 
   public registerIcons(): void {
     this.matIconRegistry.addSvgIcon(
-      `usdd`,
+      `USD`,
       this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/img/usd.svg')
     );
     this.matIconRegistry.addSvgIcon(
-      `uah`,
+      `UAH`,
       this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/img/uah.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      `EUR`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../../../assets/img/euro.svg')
     );
   }
 
