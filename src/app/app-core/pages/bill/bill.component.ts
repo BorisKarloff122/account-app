@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ValutesService} from '../../services/valutes.service';
+import {BillingService} from './services/valutes.service';
 import {Bill} from '../../../shared/interface/bill';
 import {Rates} from '../../../shared/interface/rates';
 import {MatIconRegistry} from '@angular/material/icon';
@@ -18,7 +18,7 @@ export class BillComponent implements OnInit {
   private curNames = ['EUR', 'USD', 'UAH'];
 
   constructor(
-    private valute: ValutesService,
+    private currency: BillingService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ){}
@@ -29,7 +29,7 @@ export class BillComponent implements OnInit {
   }
 
   public getValues(): void {
-    this.valute.requestValutes()
+    this.currency.requestValutes()
       .subscribe((res) => {
         this.resDate = res[1].date;
         this.currencies = Array(3)

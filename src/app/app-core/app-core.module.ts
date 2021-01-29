@@ -12,7 +12,9 @@ import {LoginChildGuard} from '../shared/guards/LoginChild.guard';
 import {LoginGuard} from '../shared/guards/login.guard';
 import {CurrencyTableComponent} from './pages/bill/components/currency-table/currency-table.component';
 import {SavingsTableComponent} from './pages/bill/components/savings-table/savings-table.component';
-import { NamingPipe } from './pipes/naming.pipe';
+import {NamingPipe} from './pipes/naming.pipe';
+import {GraphComponent} from './pages/history/components/graph/graph.component';
+import {TableComponent} from './pages/history/components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { NamingPipe } from './pipes/naming.pipe';
     CurrencyTableComponent,
     SavingsTableComponent,
     NamingPipe,
+    GraphComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,
