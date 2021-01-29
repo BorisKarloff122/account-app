@@ -7,12 +7,14 @@ import {Injectable} from '@angular/core';
 export class LoginGuard implements CanActivate{
   constructor(private router: Router){}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean{
-      if (localStorage.getItem('activeUser') === null){
-        this.router.navigateByUrl('auth');
-        return false;
-      }
-      else{
-        return true;
-      }
+    if (localStorage.getItem('activeUser')) {
+      return true;
+    }
+    else {
+      this.router.navigateByUrl('/auth');
+      return false;
+    }
+
+
   }
 }

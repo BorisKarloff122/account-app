@@ -13,15 +13,15 @@ export class HeaderComponent implements OnInit {
   constructor(
     private userServ: UserService,
     private router: Router
-  ) { }
+  ){}
 
   ngOnInit(): void {
+    this.drawer();
   }
 
   public logOut(): void{
     this.userServ.logOut();
     this.router.navigateByUrl('auth');
-    console.log('leaving');
   }
 
   public drawer(): void{

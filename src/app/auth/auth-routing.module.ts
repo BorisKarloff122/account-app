@@ -9,10 +9,6 @@ const routes: Routes = [
       { path: 'auth', component: AuthFormComponent},
       { path: 'reg', component: RegFormComponent},
     ]},
-  { path: 'logged',
-    loadChildren:
-      () => import('../app-core/app-core.module')
-      .then(m => m.AppCoreModule) },
 ];
 
 @NgModule({

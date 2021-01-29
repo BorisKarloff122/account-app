@@ -7,50 +7,12 @@
       <mat-icon class="icon" (click)="refresh()">refresh</mat-icon>
     </div>
   </div>
-  <div class="tables" *ngIf="bill.length !== 0 && valutes.length !== 0; else loading">
-    <div class="table money">
-      <div class="t_header">Счет</div>
-      <div class="col">
-        <div class="cell">
-          <mat-icon>euro_symbol</mat-icon>
-          <div class="value">{{bill[0].value | number : '1.2-2'}}</div>
-        </div>
-
-        <div class="cell">
-          <mat-icon svgIcon="uah"></mat-icon>
-          <div class="value">{{bill[2].value | number : '1.2-2'}}</div>
-        </div>
-        <div class="cell">
-          <mat-icon svgIcon="usdd"></mat-icon>
-          <div class="value">{{bill[1].value | number: '1.2-2'}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="table valutes">
-      <div class="t_header">Курс</div>
-      <table mat-table [dataSource]="valutes" class="mat-elevation-z8">
-
-        <ng-container matColumnDef="valutes">
-          <th mat-header-cell *matHeaderCellDef>Валюта </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="values">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef> Дата </th>
-          <td mat-cell *matCellDef="let element"> {{resDate}} </td>
-        </ng-container>
-
-
-
-        <tr mat-header-row *matHeaderRowDef="cols"></tr>
-        <tr mat-row *matRowDef="let row; columns: cols;"></tr>
-      </table>
-    </div>
+  <div class="tables" *ngIf="showTables; else loading">
+    <app-savings-table [bill] = bill></app-savings-table>
+    <app-currency-table
+      [currency]="currencies"
+      [date] = resDate
+      [cols] = cols></app-currency-table>
   </div>
 </div>
 

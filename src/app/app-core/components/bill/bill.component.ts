@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ValutesService} from '../../services/valutes.service';
 import {Bill} from '../../../shared/interface/bill';
 import {Rates} from '../../../shared/interface/rates';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
-
 
 @Component({
   selector: 'app-bill',
@@ -12,17 +11,17 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
-  public valutes: Rates[] = [];
+  public currencies: Rates[] = [];
   public bill: Bill[] = [];
   public resDate!: string;
-  private valutesNames = ['EUR', 'USD', 'UAH'];
-  private cols = ['valutes', 'values', 'date'];
+  public showTables: boolean = false;
+  private curNames = ['EUR', 'USD', 'UAH'];
 
   constructor(
     private valute: ValutesService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
-  ) { }
+  ){}
 
   ngOnInit(): void {
     this.getValues();
@@ -33,14 +32,19 @@ export class BillComponent implements OnInit {
     this.valute.requestValutes()
       .subscribe((res) => {
         this.resDate = res[1].date;
-        this.valutes = Array(3)
+        this.currencies = Array(3)
           .fill(0)
-          .map((i: Rates, x: number) => ({name: this.valutesNames[x], value: res[1].rates[this.valutesNames[x]]}));
+          .map((i: Rates, x: number) => (
+            {name: this.curNames[x], value: res[1].rates[this.curNames[x]]}
+            )
+          );
         this.bill = Array(3)
           .fill(0)
           .map((i: Bill, x: number) => (
-            { value: res[0].value * this.valutes[x].value, currency: this.valutesNames[x]}
-          ));
+            {value: res[0].value * this.currencies[x].value, currency: this.curNames[x]}
+            )
+          );
+        this.showTables = true;
     });
   }
 
@@ -56,8 +60,7 @@ export class BillComponent implements OnInit {
   }
 
   public refresh(): void{
-    this.valutes = [];
-    this.bill = [];
+    this.showTables = false;
     this.getValues();
   }
 }

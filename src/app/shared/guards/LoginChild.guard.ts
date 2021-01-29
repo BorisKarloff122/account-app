@@ -6,8 +6,11 @@ import {Injectable} from '@angular/core';
 
 export class LoginChildGuard implements CanActivateChild{
   constructor(private router: Router){}
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean{
-    if (localStorage.getItem('activeUser') === null){
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | boolean{
+    if (this.router.url === 'logged' && localStorage.getItem('activeUser') === null){
       this.router.navigateByUrl('auth');
       return false;
     }

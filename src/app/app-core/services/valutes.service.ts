@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
 })
 
 export class ValutesService {
-  private valutesLink = 'http://data.fixer.io/api/latest?access_key=156f43c852d2eb2cdca7a4ba965e720a';
+  private curLink = 'http://data.fixer.io/api/latest?access_key=156f43c852d2eb2cdca7a4ba965e720a';
   private billLink = `${environment.serverLink}/bill`;
 
   constructor(
@@ -18,7 +18,7 @@ export class ValutesService {
   ) { }
 
   public getValutes(): Observable<Valutes>{
-    return this.http.get<Valutes>(this.valutesLink);
+    return this.http.get<Valutes>(this.curLink);
   }
 
   public getSaves(): Observable<Bill>{

@@ -10,6 +10,7 @@ import {MaterialModule} from '../shared/material/material.module';
 import {AppCoreModule} from '../app-core/app-core.module';
 import {LoginGuard} from '../shared/guards/login.guard';
 import {LoginCanLoadGuard} from '../shared/guards/loginCanLoad.guard';
+import {LoginChildGuard} from '../shared/guards/LoginChild.guard';
 
 
 @NgModule({
@@ -27,6 +28,6 @@ import {LoginCanLoadGuard} from '../shared/guards/loginCanLoad.guard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoginGuard, LoginCanLoadGuard]
+  providers: [LoginGuard, LoginCanLoadGuard, LoginChildGuard]
 })
 export class AuthModule{}
