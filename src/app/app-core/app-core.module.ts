@@ -15,6 +15,8 @@ import {SavingsTableComponent} from './pages/bill/components/savings-table/savin
 import {NamingPipe} from './pipes/naming.pipe';
 import {GraphComponent} from './pages/history/components/graph/graph.component';
 import {TableComponent} from './pages/history/components/table/table.component';
+import {CorrectorPipe} from './pages/history/pipes/corrector.pipe';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,15 @@ import {TableComponent} from './pages/history/components/table/table.component';
     NamingPipe,
     GraphComponent,
     TableComponent,
+    CorrectorPipe,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     AppCoreRoutingModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [LoginChildGuard, LoginGuard]
 })

@@ -8,15 +8,24 @@ import {IHistory} from '../../../../shared/interface/history';
   providedIn: 'root'
 })
 export class HistoryService {
-  public historyLink = `${environment.serverLink}/history`;
+  public eventsLink = `${environment.serverLink}/events`;
+  public catsLink = `${environment.serverLink}/categories`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public getHistory(): Observable<IHistory>{
-    return this.http.get<IHistory>(`${this.historyLink}`);
+  public getEvents(): Observable<IHistory[]>{
+    return this.http.get<IHistory[]>(`${this.eventsLink}`);
   }
+  public getSingleEvent(id): Observable<IHistory>{
+    return this.http.get<IHistory>(`${this.eventsLink}/${id}`);
+  }
+
+  public getSeparateCatOutcome(category): Observable<IHistory[]>{
+    return this.http.get<IHistory[]>(`${this.eventsLink}?type=outcome&category=${category}`);
+  }
+
 }
 
 

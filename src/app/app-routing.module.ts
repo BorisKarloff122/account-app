@@ -4,8 +4,9 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 import {LoginGuard} from './shared/guards/login.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth', pathMatch: 'full'},
-  { path: 'logged', canActivate: [LoginGuard], loadChildren: () => import('./app-core/app-core.module').then(m => m.AppCoreModule)  },
+
+  { path: 'logged', canActivate: [LoginGuard], loadChildren: () => import('./app-core/app-core.module')
+      .then(m => m.AppCoreModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 

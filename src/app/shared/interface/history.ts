@@ -1,9 +1,9 @@
-export interface IHistory {
+export interface IHistory extends Array<object> {
   id?: number;
   type: string;
   amount: number;
   category: number;
   date: string;
-  description: string
+  description: string;
 }
 

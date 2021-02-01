@@ -6,6 +6,6 @@
   </div>
   <div class="table">
     <app-graph></app-graph>
-    <app-table></app-table>
+    <app-table *ngIf="dataSource" [dataSource] = dataSource></app-table>
   </div>
 </div>

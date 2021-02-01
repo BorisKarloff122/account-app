@@ -1,5 +1,8 @@
 .container{
   margin:0 auto;
+  ::ng-deep .mat-form-field{
+    width:100%;
+  }
 
   .top_line{
     display: flex;
