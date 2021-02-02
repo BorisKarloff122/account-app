@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IHistory} from '../../../../../shared/interface/history';
+import {IHistory} from '../../../../../../../shared/interface/history';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
-import {HistoryService} from '../../services/history.service';
+import {HistoryService} from '../../../../services/history.service';
 
 @Component({
   selector: 'app-table',
@@ -54,7 +54,7 @@ export class TableComponent implements OnInit {
   }
 
   public inspect(id): void{
-    this.router.navigate(['/logged/records', {id}]);
+    this.router.navigate(['record', {id}]);
   }
 
   public applyFilter(event: Event): void {

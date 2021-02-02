@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-test',
@@ -9,11 +10,14 @@ import {Router} from '@angular/router';
 export class AppCoreComponent implements OnInit{
 
   constructor(
-    private router: Router
+    private router: Router,
+    private location: Location
   ){}
 
   ngOnInit(): void {
-    this.router.navigateByUrl('/logged/bill');
+    if (this.location.path() === '/logged'){
+      this.router.navigateByUrl('/logged/bill');
+    }
   }
 
   public drawDrawer(elem): void{

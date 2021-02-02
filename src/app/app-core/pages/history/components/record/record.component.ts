@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
+import {IHistory} from '../../../../../shared/interface/history';
 import {ActivatedRoute, Router} from '@angular/router';
-import {RecordsService} from './services/records.service';
-import {IHistory} from '../../../shared/interface/history';
+import {RecordsService} from '../../../records/services/records.service';
 
 @Component({
-  selector: 'app-records',
-  templateUrl: './records.component.html',
-  styleUrls: ['./records.component.scss']
+  selector: 'app-record',
+  templateUrl: './record.component.html',
+  styleUrls: ['./record.component.scss']
 })
-export class RecordsComponent implements OnInit {
+export class RecordComponent implements OnInit {
   public dataEvent: IHistory | undefined;
 
   constructor(
@@ -17,7 +17,7 @@ export class RecordsComponent implements OnInit {
     private RecService: RecordsService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
     console.log(this.dataEvent);
     this.getSingleEvent();
   }

@@ -1,0 +1,22 @@
+<div class="container" *ngIf = 'dataEvent; else empty'>
+  <div class="top_line">
+    <div class="header">
+      <h2><mat-icon class="icon" (click)="goBack()">keyboard_backspace</mat-icon>Страница записей №{{dataEvent.id}}</h2>
+    </div>
+  </div>
+  <div class="details" [ngClass]="dataEvent.type === 'outcome'? 'red': 'blue'">
+    <div class="type header">{{dataEvent.type | corrector}}</div>
+    <ul>
+      <li>Сумма: <strong>{{dataEvent.amount}} EUR</strong></li>
+      <li>Категория: <strong>{{dataEvent.category | corrector}}</strong></li>
+      <li>Комментарий: <strong>{{dataEvent.description}}</strong></li>
+    </ul>
+    <div class="date">{{dataEvent.date}}</div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="container emptyContainer">
+    Событий не выбрано!
+  </div>
+</ng-template>

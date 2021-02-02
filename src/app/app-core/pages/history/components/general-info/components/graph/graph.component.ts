@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HistoryService} from '../../services/history.service';
+import {HistoryService} from '../../../../services/history.service';
 
 
 @Component({
