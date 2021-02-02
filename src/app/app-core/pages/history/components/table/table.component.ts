@@ -3,6 +3,9 @@ import {IHistory} from '../../../../../shared/interface/history';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {HistoryService} from '../../services/history.service';
+import { RecordsService } from '../../../records/services/records.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RecordComponent } from '../record/record.component';
 
 @Component({
   selector: 'app-table',
@@ -18,7 +21,9 @@ export class TableComponent implements OnInit {
   public data!: MatTableDataSource<any[]>;
   constructor(
     private router: Router,
-    private histService: HistoryService
+    private histService: HistoryService,
+    private RecService: RecordsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +51,6 @@ export class TableComponent implements OnInit {
       this.dataSource = res;
       this.setData();
     });
-
   }
 
   public setData(): void{
@@ -54,7 +58,9 @@ export class TableComponent implements OnInit {
   }
 
   public inspect(id): void{
-    this.router.navigate(['/logged/records', {id}]);
+    this.RecService.getSingleEvent(id).subscribe((res) => {
+        this.dialog.open(RecordComponent, {width: '90%', height: '90%', data: res} );
+    });
   }
 
   public applyFilter(event: Event): void {

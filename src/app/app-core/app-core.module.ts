@@ -17,6 +17,7 @@ import {GraphComponent} from './pages/history/components/graph/graph.component';
 import {TableComponent} from './pages/history/components/table/table.component';
 import {CorrectorPipe} from './pages/history/pipes/corrector.pipe';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { RecordComponent } from './pages/history/components/record/record.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     GraphComponent,
     TableComponent,
     CorrectorPipe,
+    RecordComponent,
   ],
   imports: [
     CommonModule,

@@ -5,3 +5,8 @@
 .blue{
   color:#3f51b5;
 }
+
+
+::ng-deep .mat-paginator-page-size-label{
+  width:100%;
+}
