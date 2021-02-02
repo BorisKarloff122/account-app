@@ -10,6 +10,8 @@ import {HistoryService} from '../../services/history.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+  public catNames: string[] = [];
+
   public dataSource: IHistory[];
   public total!: number;
   public limitTo = 5;

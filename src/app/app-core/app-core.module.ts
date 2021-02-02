@@ -36,6 +36,7 @@ import {EventComponent} from './pages/history/components/event/event.component';
     TableComponent,
     CorrectorPipe,
     EventComponent,
+    CorrectorPipe,
   ],
   imports: [
     CommonModule,

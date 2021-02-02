@@ -22,13 +22,13 @@
 
   <ng-container matColumnDef="cat">
     <th mat-header-cell *matHeaderCellDef>Категория</th>
-    <td mat-cell *matCellDef="let element"> {{element.category | corrector}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.category | corrector | async}} </td>
   </ng-container>
 
   <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef>Тип</th>
     <td style="font-weight:bold;" mat-cell *matCellDef="let element"
-        [ngClass]="element.type === 'outcome'? 'red' : 'blue'">{{element.type | corrector}}</td>
+        [ngClass]="element.type === 'outcome'? 'red' : 'blue'">{{element.type | corrector | async}}</td>
   </ng-container>
 
   <ng-container matColumnDef="action">

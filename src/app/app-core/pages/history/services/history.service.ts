@@ -16,6 +16,7 @@ export class HistoryService {
     private http: HttpClient
   ) { }
 
+
   public getCategories(): Observable<ICategory[]>{
     return this.http.get<ICategory[]>(this.catLink);
   }
