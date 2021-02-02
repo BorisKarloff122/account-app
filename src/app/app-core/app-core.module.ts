@@ -13,13 +13,13 @@ import {LoginGuard} from '../shared/guards/login.guard';
 import {CurrencyTableComponent} from './pages/bill/components/currency-table/currency-table.component';
 import {SavingsTableComponent} from './pages/bill/components/savings-table/savings-table.component';
 import {NamingPipe} from './pipes/naming.pipe';
-import {GraphComponent} from './pages/history/components/general-info/components/graph/graph.component';
-import {TableComponent} from './pages/history/components/general-info/components/table/table.component';
+import {GraphComponent} from './pages/history/components/graph/graph.component';
+import {TableComponent} from './pages/history/components/table/table.component';
 import {CorrectorPipe} from './pages/history/pipes/corrector.pipe';
 import {NgxEchartsModule} from 'ngx-echarts';
-import {RecordComponent} from './pages/history/components/record/record.component';
-import {GeneralInfoComponent} from './pages/history/components/general-info/general-info.component';
+
 import {RecordGuard} from '../shared/guards/record.guard';
+import {EventComponent} from './pages/history/components/event/event.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,7 @@ import {RecordGuard} from '../shared/guards/record.guard';
     GraphComponent,
     TableComponent,
     CorrectorPipe,
-    RecordComponent,
-    GeneralInfoComponent,
+    EventComponent,
   ],
   imports: [
     CommonModule,

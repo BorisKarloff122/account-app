@@ -14,7 +14,7 @@ export class RecordsService {
     private http: HttpClient,
   ){}
 
-  public getSingleEvent(id): Observable<IHistory>{
+  public getSingleEvent(id: string): Observable<IHistory>{
     return this.http.get<IHistory>(`${this.eventsLink}/${id}`);
   }
 }

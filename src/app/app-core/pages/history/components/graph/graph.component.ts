@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HistoryService} from '../../../../services/history.service';
+import {HistoryService} from '../../services/history.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class GraphComponent implements OnInit {
   public names: string[] =  ['Дом', 'Еда', 'Машина'];
 
   constructor(
-    private histService: HistoryService
+    private historyService: HistoryService
   ){}
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class GraphComponent implements OnInit {
 
   public countData(): void{
     this.graphList.forEach((i: number, index: number) => {
-        this.histService.getSeparateCatOutcome(i).subscribe((res) => {
+        this.historyService.getSeparateCatOutcome(i).subscribe((res) => {
           let cat = 0;
           res.forEach((j, itter: number) => {
             cat = cat + j.amount;

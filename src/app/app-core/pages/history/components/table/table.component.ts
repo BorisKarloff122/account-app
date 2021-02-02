@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {IHistory} from '../../../../../../../shared/interface/history';
+import {IHistory} from '../../../../../shared/interface/history';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
-import {HistoryService} from '../../../../services/history.service';
+import {HistoryService} from '../../services/history.service';
 
 @Component({
   selector: 'app-table',
@@ -14,27 +14,28 @@ export class TableComponent implements OnInit {
   public total!: number;
   public limitTo = 5;
   public pageN = 1;
-  public cols: string[] = ['pos', 'date', 'cat', 'type', 'action'];
+  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action'];
   public data!: MatTableDataSource<any[]>;
+
   constructor(
     private router: Router,
-    private histService: HistoryService
+    private historyService: HistoryService
   ) { }
 
   ngOnInit(): void {
-    this.getTotalLength();
     this.getEvents();
   }
 
   public getEvents(): void {
-    this.histService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
+    this.getTotalLength();
+    this.historyService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
       this.dataSource = res;
       this.setData();
     });
   }
 
   public getTotalLength(): void{
-    this.histService.getTotalLength().subscribe((res) => {
+    this.historyService.getTotalLength().subscribe((res) => {
       this.total = res.length;
     });
   }
@@ -42,11 +43,7 @@ export class TableComponent implements OnInit {
   public page(event: any): void{
     this.pageN = event.pageIndex + 1;
     this.limitTo = event.pageSize;
-    this.histService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
-      this.dataSource = res;
-      this.setData();
-    });
-
+    this.getEvents();
   }
 
   public setData(): void{
@@ -54,7 +51,7 @@ export class TableComponent implements OnInit {
   }
 
   public inspect(id): void{
-    this.router.navigate(['record', {id}]);
+    this.router.navigateByUrl(`history/:${id}`);
   }
 
   public applyFilter(event: Event): void {

@@ -4,17 +4,14 @@ import {AppCoreComponent} from './app-core.component';
 import {BillComponent} from './pages/bill/bill.component';
 import {HistoryComponent} from './pages/history/history.component';
 import {RecordsComponent} from './pages/records/records.component';
-import {RecordComponent} from './pages/history/components/record/record.component';
-import {GeneralInfoComponent} from './pages/history/components/general-info/general-info.component';
-import { RecordGuard } from '../shared/guards/record.guard';
+import {RecordGuard} from '../shared/guards/record.guard';
+import {EventComponent} from './pages/history/components/event/event.component';
 
 const routes: Routes = [
   {path: '', component: AppCoreComponent, children: [
       {path: 'bill', component: BillComponent},
-      {path: 'history', component: HistoryComponent, children: [
-          {path: '', component: GeneralInfoComponent, outlet: 'history'},
-        ]},
-      {path: 'record', canActivate: [RecordGuard], component: RecordComponent},
+      {path: 'history', component: HistoryComponent},
+      {path: 'history/:id', canActivate: [RecordGuard], component: EventComponent},
       {path: 'records', component: RecordsComponent}
     ]},
 ];
