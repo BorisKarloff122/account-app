@@ -18,6 +18,9 @@ export class HistoryService {
     return this.http.get<IHistory[]>(`${this.eventsLink}?${options}`);
   }
 
+  public getTotalLength(): Observable<IHistory[]>{
+    return this.http.get<IHistory[]>(`${this.eventsLink}`);
+  }
 
   public getSeparateCatOutcome(category): Observable<IHistory[]>{
     return this.http.get<IHistory[]>(`${this.eventsLink}?type=outcome&category=${category}`);

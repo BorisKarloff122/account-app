@@ -21,20 +21,32 @@ export class TableComponent implements OnInit {
     private histService: HistoryService
   ) { }
 
-  public getEvents(ev?: any): void {
+  ngOnInit(): void {
+    this.getTotalLength();
+    this.getEvents();
+  }
+
+  public getEvents(): void {
     this.histService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
       this.dataSource = res;
-      if (ev){
-        this.pageN = ev.pageIndex + 1;
-        this.total = res.length + 1;
-        this.limitTo = ev.pageSize;
-      }
       this.setData();
     });
   }
 
-  ngOnInit(): void {
-    this.getEvents();
+  public getTotalLength(): void{
+    this.histService.getTotalLength().subscribe((res) => {
+      this.total = res.length;
+    });
+  }
+
+  public page(event: any): void{
+    this.pageN = event.pageIndex + 1;
+    this.limitTo = event.pageSize;
+    this.histService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
+      this.dataSource = res;
+      this.setData();
+    });
+
   }
 
   public setData(): void{

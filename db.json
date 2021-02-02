@@ -114,6 +114,14 @@
       "type": "outcome",
       "date": "20.06.2019 14:55:18",
       "id": 10
+    },
+    {
+      "category": 3,
+      "amount": 100,
+      "description": "Hello",
+      "type": "outcome",
+      "date": "20.06.2019 14:55:18",
+      "id": 11
     }
   ]
 }
