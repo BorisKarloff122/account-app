@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../../../../environments/environment';
 import {IHistory} from '../../../../shared/interface/history';
 import { ICategory } from '../../../../shared/interface/category';
 
@@ -9,13 +8,12 @@ import { ICategory } from '../../../../shared/interface/category';
   providedIn: 'root'
 })
 export class HistoryService {
-  public eventsLink = `${environment.serverLink}/events`;
-  public catLink = `${environment.serverLink}/categories`
+  public eventsLink = `/events`;
+  public catLink = `/categories`;
 
   constructor(
     private http: HttpClient
   ) { }
-
 
   public getCategories(): Observable<ICategory[]>{
     return this.http.get<ICategory[]>(this.catLink);
