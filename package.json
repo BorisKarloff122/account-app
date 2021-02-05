@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "startServer": "json-server -w db.json",
     "start1:normal": "concurrently --kill-others \"npm run start\" \"npm run startServer\"",
-    "start2:oak": "concurrently --kill-others \"ng serve -c=oak\" \"json-server -w db.json -p 9111\""
+    "start2:oak": "concurrently --kill-others \"ng serve --host 0.0.0.0 -c=oak\" \"json-server -w db.json -p 9111\""
   },
   "private": true,
   "dependencies": {

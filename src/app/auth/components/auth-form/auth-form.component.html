@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" (window:resize)="orientTest()">
 <h2>Домашняя Бухгалтерия</h2>
   <div class="subTitle">
     {{subTitleText}}
@@ -8,7 +8,7 @@
       {{exist}}
     </div>
     <mat-form-field>
-      <mat-label>Почта</mat-label>
+      <mat-label>Почта</mat-label>k
       <input type='text' formControlName="email"  matInput placeholder="Почта">
       <mat-error class="error" *ngIf="getter.email.touched || isSubmitted">
         <span class="req valid" *ngIf="getter.email.value.length === 0">Поле Почта не может быть пустым!<br/></span>
@@ -31,6 +31,5 @@
         Нет аккаунта? <a class="regLink" href="/reg" >Зарегистрироваться</a>
       </div>
     </div>
-
   </form>
 </div>

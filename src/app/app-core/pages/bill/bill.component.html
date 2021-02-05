@@ -10,9 +10,9 @@
   <div class="tables" *ngIf="showTables; else loading">
     <app-savings-table [bill] = bill></app-savings-table>
     <app-currency-table
-      [currency]="currencies"
-      [date] = resDate
-      [cols] = cols></app-currency-table>
+      [currency] = currencies
+      [date] = resDate>
+    </app-currency-table>
   </div>
 </div>
 

@@ -1,0 +1,52 @@
+<div class="container">
+<div class="top_line">
+  <div class="header">
+    <h2>Страница записей</h2>
+  </div>
+</div>
+<form [formGroup] = 'addEvent' class="addform">
+  <div class="formTitle">Добавить событие</div>
+  <div class="mess" *ngIf = 'submitted;'>
+    <div class="submitted">Форма успешно отправлена!</div>
+  </div>
+  <mat-form-field>
+    <mat-label>
+      Категория события:
+    </mat-label>
+    <input type="text"
+           placeholder="Категория"
+           matInput
+           matNativeControl
+           formControlName = 'category'
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Тип события:
+    </mat-label>
+    <mat-select matNativeControl formControlName="type">
+      <mat-option value="">Выберите категорию</mat-option>
+      <mat-option value="income">Доход</mat-option>
+      <mat-option value="outcome">Расход</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Значение:
+    </mat-label>
+    <input matNativeControl matInput type="text" formControlName="value" placeholder="Значение:">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>
+      Описание:
+    </mat-label>
+    <input type="text" matNativeControl formControlName="description" placeholder="Описание:">
+  </mat-form-field>
+  <button (click) = 'onSubmit()' [disabled]="!this.addEvent.valid" mat-raised-button>Создать</button>
+</form>
+</div>

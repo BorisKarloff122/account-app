@@ -10,5 +10,4 @@ export class SavingsTableComponent {
   @Input() public bill!: Bill[];
   public cols = ['name', 'value'];
   constructor(){}
-
 }

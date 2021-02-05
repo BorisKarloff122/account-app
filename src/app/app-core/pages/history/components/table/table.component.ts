@@ -11,13 +11,13 @@ import {HistoryService} from '../../services/history.service';
 })
 export class TableComponent implements OnInit {
   public catNames: string[] = [];
-
   public dataSource: IHistory[];
   public total!: number;
   public limitTo = 5;
   public pageN = 1;
-  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action'];
+  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action', 'newNote'];
   public data!: MatTableDataSource<any[]>;
+
 
   constructor(
     private router: Router,
@@ -26,6 +26,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEvents();
+    this.getCatNames();
   }
 
   public getEvents(): void {
@@ -59,6 +60,20 @@ export class TableComponent implements OnInit {
   public applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.data.filter = filterValue.trim().toLowerCase();
+  }
+
+  public getCatNames(): void{
+    this.historyService.getCategories().subscribe((res) => {
+      const catNames: string[] = [];
+      res.forEach((i, index) => {
+        catNames.push(res[index].name);
+      });
+      this.catNames = catNames;
+    });
+  }
+
+  public noteAdd(): void{
+    this.router.navigateByUrl('/records');
   }
 
 }

@@ -22,19 +22,25 @@
 
   <ng-container matColumnDef="cat">
     <th mat-header-cell *matHeaderCellDef>Категория</th>
-    <td mat-cell *matCellDef="let element"> {{element.category | corrector | async}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.category | corrector: catNames}} </td>
   </ng-container>
 
   <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef>Тип</th>
     <td style="font-weight:bold;" mat-cell *matCellDef="let element"
-        [ngClass]="element.type === 'outcome'? 'red' : 'blue'">{{element.type | corrector | async}}</td>
+        [ngClass]="element.type === 'outcome'? 'red' : 'blue'">{{element.type | corrector: catNames}}</td>
   </ng-container>
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Действие</th>
     <td mat-cell *matCellDef="let element">
       <a (click)='inspect(element.id)' class="blue" mat-raised-button>Открыть</a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="newNote">
+    <th mat-header-cell *matHeaderCellDef>Действие</th>
+    <td mat-cell *matCellDef="let element">
+     <mat-icon class="icon" (click)="noteAdd()">note_add</mat-icon>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="cols"></tr>

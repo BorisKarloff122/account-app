@@ -20,6 +20,7 @@ import {NgxEchartsModule} from 'ngx-echarts';
 
 import {RecordGuard} from '../shared/guards/record.guard';
 import {EventComponent} from './pages/history/components/event/event.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {EventComponent} from './pages/history/components/event/event.component';
     AppCoreRoutingModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [LoginChildGuard, LoginGuard, RecordGuard]
 })
