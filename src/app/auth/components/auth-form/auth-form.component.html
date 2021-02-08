@@ -8,7 +8,7 @@
       {{exist}}
     </div>
     <mat-form-field>
-      <mat-label>Почта</mat-label>k
+      <mat-label>Почта</mat-label>
       <input type='text' formControlName="email"  matInput placeholder="Почта">
       <mat-error class="error" *ngIf="getter.email.touched || isSubmitted">
         <span class="req valid" *ngIf="getter.email.value.length === 0">Поле Почта не может быть пустым!<br/></span>

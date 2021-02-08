@@ -5,12 +5,6 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
-    },
-    {
-      "id": 1,
-      "email": "aaaaaa",
-      "password": "111111",
-      "name": "Администратор"
     }
   ],
   "bill": {
@@ -47,6 +41,11 @@
       "name": "rtet",
       "id": 6,
       "capacity": 1000
+    },
+    {
+      "name": "test",
+      "id": 7,
+      "capacity": 10000
     }
   ],
   "events": [
@@ -91,7 +90,7 @@
       "description": "Заправка + проход ТО"
     },
     {
-      "category": 3,
+      "category": 4,
       "amount": 100,
       "description": "Hello",
       "type": "outcome",
@@ -107,7 +106,7 @@
       "id": 7
     },
     {
-      "category": 3,
+      "category": 4,
       "amount": 100,
       "description": "Hello",
       "type": "outcome",
@@ -115,7 +114,7 @@
       "id": 8
     },
     {
-      "category": 3,
+      "category": 2,
       "amount": 100,
       "description": "Hello",
       "type": "outcome",
@@ -123,7 +122,7 @@
       "id": 9
     },
     {
-      "category": 3,
+      "category": 1,
       "amount": 100,
       "description": "Hello",
       "type": "outcome",
@@ -137,6 +136,14 @@
       "type": "outcome",
       "date": "20.06.2019 14:55:18",
       "id": 11
+    },
+    {
+      "type": "outcome",
+      "amount": 5000,
+      "category": 7,
+      "date": "17.06.2019 14:00:58",
+      "id": 12,
+      "description": "Test description"
     }
   ]
 }

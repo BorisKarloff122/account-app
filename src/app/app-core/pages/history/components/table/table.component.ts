@@ -15,7 +15,7 @@ export class TableComponent implements OnInit {
   public total!: number;
   public limitTo = 5;
   public pageN = 1;
-  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action', 'newNote'];
+  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action'];
   public data!: MatTableDataSource<any[]>;
 
 
@@ -70,10 +70,6 @@ export class TableComponent implements OnInit {
       });
       this.catNames = catNames;
     });
-  }
-
-  public noteAdd(): void{
-    this.router.navigateByUrl('/records');
   }
 
 }

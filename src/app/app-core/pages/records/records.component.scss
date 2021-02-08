@@ -20,17 +20,24 @@
   cursor: pointer;
 }
 
-.addform{
-  margin:50px auto;
-  padding:20px;
-  width:600px;
-  display:Flex;
-  flex-direction:column;
+.small-cell{
+  width:50px;
+}
+
+.mat-table{
+  width:95%;
+  margin:0 auto;
+}
+
+.creator{
+  background-color:#3f51b5;
+  color:#fff;
+}
+
+.button_container{
+  width:95%;
+  margin:25px auto;
+  display:flex;
   align-items: center;
-  justify-content: center;
-  .formTitle{
-    margin-bottom:10px;
-    font-size:18px;
-    text-align: center;
-  }
+  justify-content: space-between;
 }

@@ -21,6 +21,7 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import {RecordGuard} from '../shared/guards/record.guard';
 import {EventComponent} from './pages/history/components/event/event.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './pages/records/components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CorrectorPipe,
     EventComponent,
     CorrectorPipe,
+    ModalComponent,
   ],
   imports: [
     CommonModule,

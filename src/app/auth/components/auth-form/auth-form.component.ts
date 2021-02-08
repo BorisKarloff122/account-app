@@ -3,7 +3,6 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {UserAuthService} from '../../services/user-auth.service';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
-import { AlertWindowComponent } from '../../../components/alert-window/alert-window.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -16,7 +15,7 @@ export class AuthFormComponent implements OnInit {
   public subTitleText: string = 'Войдите для начала работы';
   public exist = '';
   public hide: boolean = true;
-  public message = 'Your device is in portrait mode'
+  public message = 'Your device is in portrait mode';
   public signIn!: FormGroup;
   public isSubmitted: boolean = false;
 
@@ -70,7 +69,7 @@ export class AuthFormComponent implements OnInit {
   }
 
   public orientTest(): void{
-    console.log('test');
+    window.screen.orientation.lock('landscape');
     if (window.screen.orientation.type === 'landscape-primary'){
       this.snackBar.open(this.message, 'Act');
     } else {

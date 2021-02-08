@@ -1,36 +1,37 @@
 import {Component, OnInit} from '@angular/core';
 import {HistoryService} from '../../services/history.service';
 
-
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
-  public dataSource = [];
-  public graphList: number[] = [1, 2, 3];
+  public dataSource: Array<object> = [];
   public options: object = {};
-  public names: string[] =  ['Дом', 'Еда', 'Машина'];
+  public names: string[] =  [];
+  public numbers: number[] = [];
 
   constructor(
     private historyService: HistoryService
   ){}
 
   ngOnInit(): void {
-    this.countData();
+    this.getCatNames();
   }
 
   public countData(): void{
-    this.graphList.forEach((i: number, index: number) => {
-        this.historyService.getSeparateCatOutcome(i).subscribe((res) => {
-          let cat = 0;
-          res.forEach((j, itter: number) => {
-            cat = cat + j.amount;
-          });
-          this.dataSource.push({name: this.names[index], value: cat});
-          this.makeChart();
-        });
+   this.historyService.getSeparateCatOutcome().subscribe((res) => {
+
+    });
+  }
+
+  public getCatNames(): void{
+    this.historyService.getCategories().subscribe( (res) => {
+      res.forEach((i, items) => {
+        this.names.push(i.name);
+      });
+      this.countData();
     });
   }
 
