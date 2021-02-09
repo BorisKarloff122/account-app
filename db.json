@@ -38,14 +38,14 @@
       "capacity": 7000
     },
     {
-      "name": "rtet",
-      "id": 6,
-      "capacity": 1000
+      "name": "Рыбалка",
+      "capacity": 12345,
+      "id": 6
     },
     {
-      "name": "test",
-      "id": 7,
-      "capacity": 10000
+      "name": "Охота",
+      "capacity": 1234,
+      "id": 7
     }
   ],
   "events": [
@@ -96,6 +96,10 @@
       "type": "outcome",
       "date": "20.06.2019 14:55:18",
       "id": 6
+    },
+    {
+      "name": "category_name",
+      "value": "amount++"
     },
     {
       "category": 3,

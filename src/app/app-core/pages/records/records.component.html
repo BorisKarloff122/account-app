@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="button_container">
-    <button class="createEvent creator" mat-button>Создать событие</button>
-    <button class="createCategory creator" mat-button>Создать категорию</button>
+    <button class="createEvent creator" (click) = 'createEvent()' mat-button>Создать событие</button>
+    <button class="createCategory creator" (click) = 'createCategory()' mat-button>Создать категорию</button>
   </div>
   <div class="table">
     <table mat-table [dataSource]="data" class="mat-elevation-z8">

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HistoryService} from '../../services/history.service';
+import { IHistory } from '../../../../../shared/interface/history';
 
 @Component({
   selector: 'app-graph',
@@ -22,8 +23,12 @@ export class GraphComponent implements OnInit {
 
   public countData(): void{
    this.historyService.getSeparateCatOutcome().subscribe((res) => {
+     const amounts = [];
+     res.forEach((i: IHistory, item: number) => {
 
-    });
+     });
+   });
+
   }
 
   public getCatNames(): void{

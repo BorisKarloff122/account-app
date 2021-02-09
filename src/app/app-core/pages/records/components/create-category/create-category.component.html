@@ -1,0 +1,28 @@
+<mat-dialog-content>
+<h2 mat-dialog-title>Добавить категорию</h2>
+  <form class="form" [formGroup]="formCategory">
+    <mat-form-field>
+      <mat-label>
+        Введите название
+      </mat-label>
+      <input type="text" formControlName="name" matInput placeholder="Введите название">
+      <div class="errorBlock" *ngIf="formControls.name.invalid && isSubmited">
+        <mat-error>Поле Название не может быть пустым</mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Введите лимит
+      </mat-label>
+      <input type="number" matInput formControlName = 'capacity' placeholder="Введите название">
+      <div class="errorBlock" *ngIf="formControls.capacity.invalid && isSubmited">
+        <mat-error *ngIf ="formControls.capacity.value.length === 0">Поле Лимит не может быть пустым</mat-error>
+        <mat-error *ngIf ='formControls.capacity.value < 1 && formControls.capacity.value.length !== 0'>Лимит не может быть меньше 1</mat-error>
+      </div>
+    </mat-form-field>
+    <div class="buttons">
+      <button mat-button class="creator button" (click)="submitForm()">Создать категорию</button>
+      <button mat-button class="button" (click)="close()">Закрыть</button>
+    </div>
+  </form>
+</mat-dialog-content>

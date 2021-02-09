@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IHistory} from '../../../../shared/interface/history';
@@ -17,15 +16,22 @@ export class RecordsService {
   ){}
 
   public getSingleEvent(id: string): Observable<IHistory>{
-    console.log('stuff');
     return this.http.get<IHistory>(`${this.eventsLink}/${id}`);
   }
 
-  public submitForm(form): void{
-    this.http.post<IHistory>(`${this.eventsLink}`, form).subscribe();
+  public createEvent(event): Observable<IHistory>{
+    return this.http.post<IHistory>(`${this.eventsLink}`, event);
   }
 
-  public createCategory(cat): void{
-    this.http.post<ICategory>(`${this.catLink}`, cat).subscribe();
+  public patchCategory(cat, form): Observable<ICategory>{
+    return this.http.patch<ICategory>(`${this.catLink}/${cat}`, form);
+  }
+
+  public createCategory(cat): Observable<ICategory>{
+    return this.http.post<ICategory>(`${this.catLink}`, cat);
+  }
+
+  public removeCategory(cat): Observable<ICategory>{
+    return this.http.delete<ICategory>(`${this.catLink}/${cat}`);
   }
 }

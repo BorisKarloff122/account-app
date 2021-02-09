@@ -20,8 +20,12 @@ import {NgxEchartsModule} from 'ngx-echarts';
 
 import {RecordGuard} from '../shared/guards/record.guard';
 import {EventComponent} from './pages/history/components/event/event.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ModalComponent } from './pages/records/components/modal/modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { CreateCategoryComponent } from './pages/records/components/create-category/create-category.component';
+import { EditCategoryComponent } from './pages/records/components/edit-category/edit-category.component';
+import { RemoveCategoryComponent } from './pages/records/components/remove-category/remove-category.component';
+import { CreateEventComponent } from './pages/records/components/create-event/create-event.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { ModalComponent } from './pages/records/components/modal/modal.component
     CorrectorPipe,
     EventComponent,
     CorrectorPipe,
-    ModalComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    RemoveCategoryComponent,
+    CreateEventComponent,
   ],
   imports: [
     CommonModule,

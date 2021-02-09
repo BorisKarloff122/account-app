@@ -3,6 +3,8 @@ import {IHistory} from '../../../../../shared/interface/history';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {HistoryService} from '../../services/history.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateEventComponent } from '../../../records/components/create-event/create-event.component';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +23,8 @@ export class TableComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private historyService: HistoryService
+    private historyService: HistoryService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +63,10 @@ export class TableComponent implements OnInit {
   public applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.data.filter = filterValue.trim().toLowerCase();
+  }
+
+  public createEvent(): void{
+    this.dialog.open(CreateEventComponent);
   }
 
   public getCatNames(): void{
