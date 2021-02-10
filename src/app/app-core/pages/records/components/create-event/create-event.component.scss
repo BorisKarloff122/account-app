@@ -1,0 +1,32 @@
+.creator{
+  background-color:#3f51b5;
+  color:#fff;
+}
+
+.buttonsBlock{
+  margin-top:15px;
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mat-form-field{
+  margin: 10px 0;
+}
+
+mat-form-field,
+.mat-form-field{
+  width:100%;
+}
+.mat-label{
+  margin:10px 0;
+}
+mat-radio-button{
+  margin: 0 10px;
+}
+
+.errorBlock{
+  position: absolute;
+  left:0;
+  bottom:-100%;
+}

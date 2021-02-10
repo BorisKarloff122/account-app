@@ -1,1 +1,38 @@
-<p>edit-category works!</p>
+<h2 mat-dialog-title>Редактировать категорию</h2>
+<mat-dialog-content>
+  <form *ngIf = 'formEditCategory' [formGroup] = "formEditCategory">
+    <mat-form-field>
+      <mat-label>Выберите категорию</mat-label>
+      <mat-select *ngIf="names" [(value)]="value" (selectionChange)="changeValue()">
+        <mat-option *ngFor="let opt of names; let i = index" [value]="opt">{{opt}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Введите данные:
+      </mat-label>
+      <input type="text" formControlName="name" matInput [value]="value">
+      <div class="errorBlock" *ngIf="formControls.name.invalid && isSubmited" >
+        <mat-error>Поле Категория не может быть пустым!</mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        Лимит:
+      </mat-label>
+        <input type="number" matInput formControlName="capacity" [value]="selectedCapacity">
+      <div class="errorBlock" *ngIf="formControls.capacity.invalid && isSubmited">
+        <mat-error *ngIf = 'formControls.capacity.value.length === 0'>Поле Лимит не может быть пустым</mat-error>
+        <mat-error *ngIf="formControls.capacity.value < 1 &&
+        formControls.capacity.value.length !== 0">
+          Значение поля Лимит не может быть меньше 1
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <div class="buttonsBlock">
+      <button mat-button class="creator button" (click) = 'submit()'>Редактировать категорию</button>
+      <button mat-button class="button" (click) = 'close()'>Закрыть</button>
+    </div>
+  </form>
+</mat-dialog-content>

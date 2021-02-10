@@ -13,13 +13,13 @@
   },
   "categories": [
     {
-      "capacity": 15000,
+      "capacity": "15000",
       "name": "Дом",
       "id": 1
     },
     {
       "name": "Еда",
-      "capacity": 10000,
+      "capacity": "10000",
       "id": 2
     },
     {
@@ -148,6 +148,14 @@
       "date": "17.06.2019 14:00:58",
       "id": 12,
       "description": "Test description"
+    },
+    {
+      "category": 1,
+      "type": "income",
+      "amount": 12,
+      "description": "11",
+      "date": "2021-02-10T12:01:58.142Z",
+      "id": 14
     }
   ]
 }

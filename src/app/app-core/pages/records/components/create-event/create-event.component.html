@@ -5,30 +5,39 @@
         <mat-label>
           Выберите категорию
         </mat-label>
-        <mat-select formControlName = "category">
-          <mat-option *ngFor="let option of names; let index = index" value="{{index}}">{{option}}</mat-option>
+        <mat-select formControlName = "category" *ngIf = 'names'>
+          <mat-option *ngFor="let option of names; let index = index" [value] = "index + 1">{{option}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>
+      <div class="mat-form-field">
+        <div class="mat-label">
           Выберите тип
-        </mat-label>
-        <div class="buttons_container">
-            <mat-radio-button NativeFormContol formControlName="type" name="type">Доход</mat-radio-button>
-            <mat-radio-button formControlName="type" name="type">Расход</mat-radio-button>
         </div>
-      </mat-form-field>
+        <div class="buttons_container">
+          <mat-radio-group formControlName="type">
+            <mat-radio-button value = 'income'>Доход</mat-radio-button>
+            <mat-radio-button value = 'outcome'>Расход</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
       <mat-form-field>
         <mat-label>
           Введите сумму:
         </mat-label>
-        <input matInput type="number" placeholder="Введите сумму *" formControlName="amount">
+        <input matInput type = "number" placeholder = "Введите сумму *" formControlName="amount">
+        <div class="errorBlock" *ngIf="formControls.amount.invalid && isSubmited">
+          <mat-error *ngIf="formControls.amount.value.length === 0">Поле Сумма не может быть пустым!</mat-error>
+          <mat-error *ngIf="formControls.amount.value.length < 1 && formControls.amount.value.length !== 0">Значение поля не может быть меньше 1!</mat-error>
+        </div>
       </mat-form-field>
       <mat-form-field>
         <mat-label>
           Введите описание:
         </mat-label>
         <input type="text" matInput placeholder="Введите описание *" formControlName="description">
+        <div class="errorBlock" *ngIf = "formControls.description.invalid && isSubmited">
+          <mat-error>Поле Сумма не может быть пустым!</mat-error>
+        </div>
       </mat-form-field>
       <div class="buttonsBlock">
         <button mat-button class="creator button" (click) = 'submit()'>Создать событие</button>

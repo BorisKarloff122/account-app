@@ -10,7 +10,7 @@ import { RecordsService } from '../../services/records.service';
   styleUrls: ['./create-event.component.scss']
 })
 export class CreateEventComponent implements OnInit {
-  public formEvent: FormGroup | undefined;
+  public formEvent!: FormGroup;
   public isSubmited: boolean = false;
   public names: string[] = [];
 
@@ -27,12 +27,13 @@ export class CreateEventComponent implements OnInit {
   }
 
   public getNames(): void{
-      this.historyService.getCategories()
-        .subscribe((res) => {
-            res.forEach((i, item) => {
+    this.buildForm();
+    this.historyService.getCategories()
+      .subscribe((res) => {
+          res.forEach((i, item) => {
               this.names.push(res[item].name);
          });
-            this.buildForm();
+
      });
   }
 
@@ -40,7 +41,7 @@ export class CreateEventComponent implements OnInit {
       this.formEvent = this.fb.group(
         {
           category: ['', Validators.required],
-          type: ['', Validators.required],
+          type: [false, Validators.required],
           amount: ['', [Validators.required, Validators.min(1)]],
           description: ['', Validators.required]
         }
@@ -55,7 +56,9 @@ export class CreateEventComponent implements OnInit {
   public submit(): void{
     this.isSubmited = true;
     if (this.formEvent.valid){
-      this.recordsService.createEvent(this.formEvent.value);
+      this.formEvent.value.date = new Date();
+      this.recordsService.createEvent(this.formEvent.value)
+        .subscribe();
       this.dialogRef.close();
     }
   }

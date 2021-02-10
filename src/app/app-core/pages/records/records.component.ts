@@ -32,8 +32,6 @@ export class RecordsComponent implements OnInit {
     });
   }
 
-
-
   public createCategory(): void{
     this.dialog.open(CreateCategoryComponent, {width: '500px'}).afterClosed().subscribe((formResponse) => {
       if (formResponse){
@@ -47,11 +45,20 @@ export class RecordsComponent implements OnInit {
   }
 
   public editCategory(id): void{
-    this.dialog.open(EditCategoryComponent, {width: '500px'});
+    this.dialog.open(EditCategoryComponent, {width: '500px', data: {id}}).afterClosed().subscribe( (res) => {
+      if (res){
+        this.getData();
+      }
+
+    });
   }
 
-  public removeCategory(id): void{
-    this.dialog.open(RemoveCategoryComponent, {width: '500px'});
+  public removeCategory(id, name): void{
+    this.dialog.open(RemoveCategoryComponent, {width: '500px', data: {id, name}}).afterClosed().subscribe((res) => {
+      if(res){
+        this.getData();
+      }
+    });
   }
 }
 

@@ -1,1 +1,8 @@
-<p>remove-category works!</p>
+
+<mat-dialog-content>
+  <div class="text">Вы уверены, что хотите удалить категорию {{name}}?</div>
+  <div class='buttonsBlock'>
+    <button mat-button class="creator" (click)="remove()">Удалить</button>
+    <button mat-button (click)="close()">Закрыть</button>
+  </div>
+</mat-dialog-content>

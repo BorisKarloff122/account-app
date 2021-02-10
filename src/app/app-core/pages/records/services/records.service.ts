@@ -19,15 +19,19 @@ export class RecordsService {
     return this.http.get<IHistory>(`${this.eventsLink}/${id}`);
   }
 
-  public createEvent(event): Observable<IHistory>{
+  public getSingleCategory(id: number): Observable<ICategory>{
+    return this.http.get<ICategory>(`${this.catLink}/${id}`);
+  }
+
+  public createEvent(event: IHistory): Observable<IHistory>{
     return this.http.post<IHistory>(`${this.eventsLink}`, event);
   }
 
-  public patchCategory(cat, form): Observable<ICategory>{
+  public patchCategory(cat: number, form: ICategory): Observable<ICategory>{
     return this.http.patch<ICategory>(`${this.catLink}/${cat}`, form);
   }
 
-  public createCategory(cat): Observable<ICategory>{
+  public createCategory(cat: ICategory): Observable<ICategory>{
     return this.http.post<ICategory>(`${this.catLink}`, cat);
   }
 

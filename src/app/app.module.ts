@@ -12,7 +12,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {LoginGuard} from './shared/guards/login.guard';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {LoginCanLoadGuard} from './shared/guards/loginCanLoad.guard';
-import { AlertWindowComponent } from './components/alert-window/alert-window.component';
+import {AlertWindowComponent} from './components/alert-window/alert-window.component';
 
 @NgModule({
   declarations: [
