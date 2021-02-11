@@ -2,8 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RecordsService } from '../../services/records.service';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-category',
@@ -19,7 +17,6 @@ export class CreateCategoryComponent implements OnInit {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<CreateCategoryComponent>,
     private recordsService: RecordsService,
-    private loc: Location
   ) { }
 
   ngOnInit(): void {
@@ -36,13 +33,9 @@ export class CreateCategoryComponent implements OnInit {
   public submitForm(): void{
     this.isSubmited = true;
     if (this.formCategory.valid){
-        this.recordsService.createCategory(this.formCategory.value).subscribe();
-        if (this.loc.path() === '/records' ){
-          this.dialogRef.close(this.formCategory.value);
-        }
-        else{
-          this.dialogRef.close();
-        }
+        this.recordsService.createCategory(this.formCategory.value)
+          .subscribe();
+        this.dialogRef.close('ok');
     }
   }
 

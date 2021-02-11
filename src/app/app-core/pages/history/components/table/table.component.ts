@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IHistory} from '../../../../../shared/interface/history';
 import {MatTableDataSource} from '@angular/material/table';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {HistoryService} from '../../services/history.service';
-import { MatDialog } from '@angular/material/dialog';
-import { CreateEventComponent } from '../../../records/components/create-event/create-event.component';
+import {MatDialog} from '@angular/material/dialog';
+import {CreateEventComponent} from '../../../records/components/create-event/create-event.component';
+import {RemoveEventComponent} from '../remove-event/remove-event.component';
 
 @Component({
   selector: 'app-table',
@@ -12,14 +13,14 @@ import { CreateEventComponent } from '../../../records/components/create-event/c
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+
   public catNames: string[] = [];
   public dataSource: IHistory[];
   public total!: number;
   public limitTo = 5;
   public pageN = 1;
-  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action'];
+  public cols: string[] = ['pos', 'sum', 'date', 'cat', 'type', 'action', 'remove'];
   public data!: MatTableDataSource<any[]>;
-
 
   constructor(
     private router: Router,
@@ -29,19 +30,21 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEvents();
-    this.getCatNames();
   }
 
   public getEvents(): void {
     this.getTotalLength();
-    this.historyService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`).subscribe((res: IHistory[]) => {
+    this.historyService.getEvents(`_limit=${this.limitTo}&_page=${this.pageN}`)
+      .subscribe((res: IHistory[]) => {
       this.dataSource = res;
       this.setData();
+      this.getCatNames();
     });
   }
 
   public getTotalLength(): void{
-    this.historyService.getTotalLength().subscribe((res) => {
+    this.historyService.getTotalLength()
+      .subscribe((res) => {
       this.total = res.length;
     });
   }
@@ -66,11 +69,21 @@ export class TableComponent implements OnInit {
   }
 
   public createEvent(): void{
-    this.dialog.open(CreateEventComponent);
+    this.dialog.open(CreateEventComponent).afterClosed()
+      .subscribe((res) => {
+        if (res){
+          this.getEvents();
+        }
+      });
+  }
+
+  public removeEvent(id): void{
+      this.dialog.open(RemoveEventComponent, {width: '500px', data: {id} });
   }
 
   public getCatNames(): void{
-    this.historyService.getCategories().subscribe((res) => {
+    this.historyService.getCategories()
+      .subscribe((res) => {
       const catNames: string[] = [];
       res.forEach((i, index) => {
         catNames.push(res[index].name);
@@ -78,5 +91,4 @@ export class TableComponent implements OnInit {
       this.catNames = catNames;
     });
   }
-
 }

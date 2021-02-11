@@ -16,7 +16,6 @@ export class RecordsComponent implements OnInit {
   public cols: string[] = ['id', 'name', 'limit', 'edit', 'remove'];
   public data: ICategory[] | undefined;
 
-
   constructor(
     private historyService: HistoryService,
     private dialog: MatDialog
@@ -33,7 +32,9 @@ export class RecordsComponent implements OnInit {
   }
 
   public createCategory(): void{
-    this.dialog.open(CreateCategoryComponent, {width: '500px'}).afterClosed().subscribe((formResponse) => {
+    this.dialog.open(CreateCategoryComponent, {width: '500px'})
+      .afterClosed()
+      .subscribe((formResponse) => {
       if (formResponse){
         this.getData();
       }
@@ -45,17 +46,20 @@ export class RecordsComponent implements OnInit {
   }
 
   public editCategory(id): void{
-    this.dialog.open(EditCategoryComponent, {width: '500px', data: {id}}).afterClosed().subscribe( (res) => {
+    this.dialog.open(EditCategoryComponent, {width: '500px', data: {id}})
+      .afterClosed()
+      .subscribe( (res) => {
       if (res){
         this.getData();
       }
-
     });
   }
 
   public removeCategory(id, name): void{
-    this.dialog.open(RemoveCategoryComponent, {width: '500px', data: {id, name}}).afterClosed().subscribe((res) => {
-      if(res){
+    this.dialog.open(RemoveCategoryComponent, {width: '500px', data: {id, name}})
+      .afterClosed()
+      .subscribe((res) => {
+      if (res){
         this.getData();
       }
     });

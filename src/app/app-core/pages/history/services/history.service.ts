@@ -31,6 +31,9 @@ export class HistoryService {
     return this.http.get<IHistory[]>(`${this.eventsLink}?type=outcome`);
   }
 
+  public removeEvent(id): Observable<IHistory>{
+    return this.http.delete<IHistory>(`${this.eventsLink}/${id}`);
+  }
 }
 
 

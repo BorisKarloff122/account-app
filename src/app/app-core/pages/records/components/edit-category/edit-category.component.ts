@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit} from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { RecordsService } from '../../services/records.service';
-import { ICategory } from '../../../../../shared/interface/category';
-import { HistoryService } from '../../../history/services/history.service';
-import { forkJoin, Observable } from 'rxjs';
+import {Component, Inject, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {RecordsService} from '../../services/records.service';
+import {ICategory} from '../../../../../shared/interface/category';
+import {HistoryService} from '../../../history/services/history.service';
+import {forkJoin, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-edit-category',

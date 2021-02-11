@@ -14,7 +14,7 @@
       <mat-label>
         Введите лимит
       </mat-label>
-      <input type="number" matInput formControlName = 'capacity' placeholder="Введите название">
+      <input type="number" matInput formControlName = 'capacity' placeholder="Введите лимит">
       <div class="errorBlock" *ngIf="formControls.capacity.invalid && isSubmited">
         <mat-error *ngIf ="formControls.capacity.value.length === 0">Поле Лимит не может быть пустым</mat-error>
         <mat-error *ngIf ='formControls.capacity.value < 1 && formControls.capacity.value.length !== 0'>Лимит не может быть меньше 1</mat-error>

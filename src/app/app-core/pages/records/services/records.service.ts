@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IHistory} from '../../../../shared/interface/history';
-import { ICategory } from '../../../../shared/interface/category';
+import {ICategory} from '../../../../shared/interface/category';
 
 @Injectable({
   providedIn: 'root'

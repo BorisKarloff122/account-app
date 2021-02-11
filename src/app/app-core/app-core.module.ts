@@ -25,6 +25,7 @@ import { CreateCategoryComponent } from './pages/records/components/create-categ
 import { EditCategoryComponent } from './pages/records/components/edit-category/edit-category.component';
 import { RemoveCategoryComponent } from './pages/records/components/remove-category/remove-category.component';
 import { CreateEventComponent } from './pages/records/components/create-event/create-event.component';
+import { RemoveEventComponent } from './pages/history/components/remove-event/remove-event.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { CreateEventComponent } from './pages/records/components/create-event/cr
     EditCategoryComponent,
     RemoveCategoryComponent,
     CreateEventComponent,
+    RemoveEventComponent,
   ],
   imports: [
     CommonModule,

@@ -19,11 +19,10 @@ export class CreateEventComponent implements OnInit {
     private dialogRef: MatDialogRef<CreateEventComponent>,
     private historyService: HistoryService,
     private recordsService: RecordsService
-  ) { }
+  ){}
 
   ngOnInit(): void {
     this.getNames();
-
   }
 
   public getNames(): void{
@@ -33,7 +32,6 @@ export class CreateEventComponent implements OnInit {
           res.forEach((i, item) => {
               this.names.push(res[item].name);
          });
-
      });
   }
 
@@ -59,7 +57,7 @@ export class CreateEventComponent implements OnInit {
       this.formEvent.value.date = new Date();
       this.recordsService.createEvent(this.formEvent.value)
         .subscribe();
-      this.dialogRef.close();
+      this.dialogRef.close('ok');
     }
   }
 

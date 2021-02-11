@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HistoryService} from '../../services/history.service';
-import { IHistory } from '../../../../../shared/interface/history';
+import {forkJoin} from 'rxjs';
+import {ICategory} from '../../../../../shared/interface/category';
+import {IHistory} from '../../../../../shared/interface/history';
 
 @Component({
   selector: 'app-graph',
@@ -8,6 +10,7 @@ import { IHistory } from '../../../../../shared/interface/history';
   styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements OnInit {
+
   public dataSource: Array<object> = [];
   public options: object = {};
   public names: string[] =  [];
@@ -21,23 +24,24 @@ export class GraphComponent implements OnInit {
     this.getCatNames();
   }
 
-  public countData(): void{
-   this.historyService.getSeparateCatOutcome().subscribe((res) => {
-     const amounts = [];
-     res.forEach((i: IHistory, item: number) => {
-
-     });
-   });
-
-  }
-
   public getCatNames(): void{
-    this.historyService.getCategories().subscribe( (res) => {
-      res.forEach((i, items) => {
-        this.names.push(i.name);
+    forkJoin([this.historyService.getCategories(), this.historyService.getSeparateCatOutcome()])
+      .subscribe((res) => {
+        res[0].forEach((i: ICategory, index: number) => {
+          this.names.push(i.name);
+        });
+        res[1].forEach((i: IHistory, index: number) => {
+          this.numbers[i.category] = typeof this.numbers[i.category] !== 'undefined'
+            ? this.numbers[i.category] + i.amount
+            : i.amount;
+        });
+        this.numbers.forEach((i, index: number) => {
+          if (this.numbers[index] !== undefined){
+            this.dataSource.push({name: this.names[index - 1], value: this.numbers[index]});
+          }
+        });
+        this.makeChart();
       });
-      this.countData();
-    });
   }
 
   public makeChart(): void {

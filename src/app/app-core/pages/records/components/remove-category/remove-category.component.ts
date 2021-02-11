@@ -8,6 +8,7 @@ import { RecordsService } from '../../services/records.service';
   styleUrls: ['./remove-category.component.scss']
 })
 export class RemoveCategoryComponent{
+
   public name: string = this.data.name;
   public id: number = this.data.id;
 
@@ -15,7 +16,7 @@ export class RemoveCategoryComponent{
     @Inject(MAT_DIALOG_DATA) public data: {id: number, name: string},
     private dialogRef: MatDialogRef<RemoveCategoryComponent>,
     private recordsService: RecordsService
-  ) { }
+  ){}
 
   public close(): void{
     this.dialogRef.close();

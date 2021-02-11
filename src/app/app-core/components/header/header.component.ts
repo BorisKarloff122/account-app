@@ -8,8 +8,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
   public menuToggle: boolean = false;
   @Output() toggleDrawer = new EventEmitter<string>();
+
   constructor(
     private userServ: UserService,
     private router: Router

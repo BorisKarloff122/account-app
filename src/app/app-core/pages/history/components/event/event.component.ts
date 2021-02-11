@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IHistory } from '../../../../../shared/interface/history';
-import { ActivatedRoute, Router } from '@angular/router';
-import { RecordsService } from '../../../records/services/records.service';
-import { HistoryService } from '../../services/history.service';
+import {Component, OnInit} from '@angular/core';
+import {IHistory } from '../../../../../shared/interface/history';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RecordsService} from '../../../records/services/records.service';
+import {HistoryService} from '../../services/history.service';
 
 @Component({
   selector: 'app-event',
